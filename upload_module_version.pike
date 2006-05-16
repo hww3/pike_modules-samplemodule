@@ -19,7 +19,7 @@ int main(int argc, array(string) argv)
 
   object in = Stdio.FILE("stdin");
 
-  Stdio.stdout.write("Have you updated the changelog and module version? ");
+  Stdio.stdout.write("Have you updated the changelog, package components and module version? ");
   string ans = in->gets();
 
   if(lower_case(ans[0..0]) != "y") exit(1);
