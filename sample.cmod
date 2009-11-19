@@ -10,11 +10,11 @@
 #include "util.h"
 
 
+
 /*! @class Sample
  */
 
-PIKECLASS Sample
-{
+DECLARATIONS
 
 typedef struct
 {
@@ -33,9 +33,13 @@ PIKEFUN void create(string appname)
   pop_n_elems(args);
 }
 
-
-INIT
+PIKECLASS foo
 {
+}
+
+PIKE_MODULE_INIT
+{
+  INIT;
     SAMPLE_OBJECT_DATA * dta = 
 	(SAMPLE_OBJECT_DATA*)malloc(sizeof(SAMPLE_OBJECT_DATA));
     if (!dta)
@@ -44,15 +48,15 @@ INIT
     THIS->object_data = dta;
 }
 
-EXIT 
+PIKE_MODULE_EXIT 
 {
   if(THIS->object_data)
   {
     free(THIS->object_data);
   }
+  EXIT;
 }
 
-}
 
 /*! @endclass
  */
