@@ -39,11 +39,11 @@ PIKECLASS foo
 
 PIKE_MODULE_INIT
 {
-  INIT;
     SAMPLE_OBJECT_DATA * dta = 
 	(SAMPLE_OBJECT_DATA*)malloc(sizeof(SAMPLE_OBJECT_DATA));
     if (!dta)
         Pike_error("init_sample: Out of memory!\n");
+    INIT; 
 
     THIS->object_data = dta;
 }
